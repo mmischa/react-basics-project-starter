@@ -1,10 +1,8 @@
 import { Flex } from '@chakra-ui/react';
-import { TagItem } from './Tagitem';
+import { TagItem } from './ui/Tagitem';
 
 export const TagList = ({ items, showItems }) => {
-
-
-  // Filter Optional itemss -------------------------------------  
+  // Filter Optional itemss -------------------------------------
   if (showItems !== undefined) {
     // console.log('---------------' + showItems);
     showItems = showItems.map((item) => item.toLowerCase());

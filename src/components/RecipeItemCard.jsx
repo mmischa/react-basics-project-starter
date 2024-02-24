@@ -1,18 +1,21 @@
-import { TagList } from './ui/TagList';
+import { TagList } from './TagList';
 import { Image, Stack, Text, Card, CardBody, Heading } from '@chakra-ui/react';
 
-export const RecipeItemCard = ({ recipe, handleClick }) => {
+export const RecipeItemCard = ({ recipe, clickFn }) => {
   const healthLabelsToshow = ['vegan', 'Vegetarian', 'kidney-friendly'];
 
   return (
     <Card
+     
       transition="all .5s ease-in"
       _hover={{
         transition: 'all .3s ease-out',
         cursor: 'pointer',
         bgColor: 'blue.100',
       }}
-      onClick={() => handleClick(recipe.label) }
+      onClick={() => {
+       clickFn(recipe.label)
+      }}
     >
       <CardBody>
         {/* IMAGE  ------------------------------------- */}
