@@ -1,48 +1,25 @@
 import { SimpleGrid, Heading, Container } from '@chakra-ui/react';
-
 import { RecipeItemCard } from '../components/RecipeItemCard';
 import { SearchField } from '../components/SearchField';
-// import { useEffect } from 'react';
 import { useState } from 'react';
-import { data } from '../utils/data';
 
-const recipesData = data.hits;
-
-export const RecipeListPage = ({ setSelectedRecipe }) => {
+export const RecipeListPage = ({ filterArray, recipes, setRecipeSelected }) => {
   const [searchString, setSearchString] = useState('');
-  const [filteredRecipes, setFilteredRecipes] = useState(recipesData);
 
-  console.log(searchString);
-
-  // const filterArray = ({searchString}) => {
-  //  const matches =  recipesData.filter((item) =>
-  //     item.recipe.label.toLowerCase().includes(searchString.toLowerCase())
-  //   );
-  //   setFilteredRecipes(matches);
-  // }
-
-  //Searchfield handler
+  //Searchfield handler ------------------------------------------------
   const inputChangeHandler = (e) => {
     const searchString = e.target.value;
     setSearchString(searchString);
-    const filteredItems = recipesData.filter((recipe) =>
-      recipe.recipe.label.toLowerCase().includes(searchString.toLowerCase())
-    );
-    setFilteredRecipes(filteredItems);
-    console.log(filteredItems);
+    filterArray(searchString);
   };
 
-  //cardclickhandler
+  //cardclickhandler ----------------------------------------------------
   const onClickHandler = (recipeName) => {
-    console.log(recipeName);
-    console.log(recipesData);
-
-    const matchingRecipe = recipesData.filter(
-      (recipe) => recipe.recipe.label == recipeName
-    );
-    setSelectedRecipe(matchingRecipe);
-    
-    console.log(matchingRecipe);
+    console.log('clickhandle ' + recipeName);
+    const searchString = recipeName;
+    setSearchString(searchString);
+    filterArray(searchString);
+    setRecipeSelected(true);
   };
 
   return (
@@ -53,7 +30,7 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
         spacing="32px"
         templateColumns="repeat(auto-fill, minmax(280px, 1fr))"
       >
-        {filteredRecipes.map((item) => (
+        {recipes.map((item) => (
           <RecipeItemCard
             key={item.recipe.label}
             recipe={item.recipe}

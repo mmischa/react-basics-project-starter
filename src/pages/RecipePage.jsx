@@ -10,9 +10,12 @@ import {
 } from '@chakra-ui/react';
 import { TagList } from '../components/TagList';
 
-export const RecipePage = ({ recipe }) => {
-  console.log('---------------' + recipe[0].recipe.label);
+export const RecipePage = ({recipe}) => {
+  // console.log('-------------------------------');
+  // console.log("recipe shown = " +recipe[0].recipe.label);
+  // console.log('-------------------------------');
   recipe = recipe[0].recipe;
+  
   return (
     <>
       <Container maxW="1480px" padding="64px" flexDir="row">
