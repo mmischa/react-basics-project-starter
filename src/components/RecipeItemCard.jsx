@@ -21,7 +21,7 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
         {/* IMAGE  ------------------------------------- */}
         <Image
           src={recipe.image}
-          height="150px"
+          height="220px"
           width="100%"
           objectFit="cover"
         />

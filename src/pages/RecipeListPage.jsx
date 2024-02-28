@@ -14,6 +14,13 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
 
   console.log(searchString);
 
+  // const filterArray = ({searchString}) => {
+  //  const matches =  recipesData.filter((item) =>
+  //     item.recipe.label.toLowerCase().includes(searchString.toLowerCase())
+  //   );
+  //   setFilteredRecipes(matches);
+  // }
+
   //Searchfield handler
   const inputChangeHandler = (e) => {
     const searchString = e.target.value;
@@ -34,6 +41,7 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
       (recipe) => recipe.recipe.label == recipeName
     );
     setSelectedRecipe(matchingRecipe);
+    
     console.log(matchingRecipe);
   };
 
