@@ -13,7 +13,7 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
       _hover={{
         transition: 'all .3s ease-out',
         cursor: 'pointer',
-        bgColor: 'warmwhite.400',
+        bgColor: 'warmwhite.600',
       }}
       onClick={() => {
         clickFn(recipe.label);
@@ -41,13 +41,13 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           <TagList
             items={recipe.healthLabels}
             showItems={healthLabelsToshow}
-            color={'green'}
+            color={'yellow'}
           />
 
           {/* DIETLABELS ------------------------------- */}
           {recipe.dietLabels.length > 0 && (
             <>
-              <TagList items={recipe.dietLabels} />
+              <TagList items={recipe.dietLabels} color={'green'} />
             </>
           )}
 
@@ -58,7 +58,7 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           {recipe.cautions.length > 0 && (
             <>
               <Text fontSize="sm">Caution:</Text>
-              <TagList items={recipe.cautions} color={'red'} />
+              <TagList items={recipe.cautions} color={'orange'} />
             </>
           )}
         </Stack>

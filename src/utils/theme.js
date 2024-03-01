@@ -11,8 +11,11 @@ export const theme = extendTheme({
     warmwhite: {
       200: '#F9F8F1',
       400: '#efebd8',
-      600: '#EDE9D4',
+      600: '#E7E1C5',
     },
+    orange: '#F2A359',
+    yellow: '#F2DC5D',
+    green: '#93C89F',
   },
   fonts: {
     heading: 'Libre Baskerville, serif',

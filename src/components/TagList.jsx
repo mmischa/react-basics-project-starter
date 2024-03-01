@@ -13,7 +13,6 @@ export const TagList = ({ items, showItems, color }) => {
     <Flex gap="2" flexWrap="wrap">
       {items.map((tag) => (
         <Tag key={tag.toString()} bgColor={color}>{tag}</Tag>
-        // <TagItem key={tag.toString()} text={tag} color={"red"} />
       ))}
     </Flex>
   );

@@ -26,8 +26,8 @@ export const App = () => {
 
   return (
     <>
-      <ChakraProvider theme={theme}>
-        <Box bg="warmwhite.400" w="100%" h="100%">
+      <ChakraProvider theme={theme} >
+        <Box  w="100%" h="100vw">
           {recipeSelected === true ? (
             // Show if recipe selected
             <RecipePage
