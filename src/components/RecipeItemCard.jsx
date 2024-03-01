@@ -6,15 +6,17 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
 
   return (
     <Card
-     
+      variant="filled"
+      borderRadius="1rem"
+      bgColor="warmwhite.200"
       transition="all .5s ease-in"
       _hover={{
         transition: 'all .3s ease-out',
         cursor: 'pointer',
-        bgColor: 'blue.100',
+        bgColor: 'warmwhite.400',
       }}
       onClick={() => {
-       clickFn(recipe.label)
+        clickFn(recipe.label);
       }}
     >
       <CardBody>
@@ -24,14 +26,23 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           height="220px"
           width="100%"
           objectFit="cover"
+          borderRadius="1rem"
         />
         <Stack mt="6" spacing="3">
           {/* TEXT ------------------------------------- */}
-          <Text fontSize="sm">{recipe.mealType}</Text>
-          <Heading size="md">{recipe.label}</Heading>
+          <Text fontSize="sm" fontWeight="bold" textTransform="uppercase">
+            {recipe.mealType}
+          </Text>
+          <Heading fontSize="2xl" lineHeight="base">
+            {recipe.label}
+          </Heading>
           {/* HEALTHLABELS ----------------------------- */}
 
-          <TagList items={recipe.healthLabels} showItems={healthLabelsToshow} />
+          <TagList
+            items={recipe.healthLabels}
+            showItems={healthLabelsToshow}
+            color={'green'}
+          />
 
           {/* DIETLABELS ------------------------------- */}
           {recipe.dietLabels.length > 0 && (
@@ -47,7 +58,7 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           {recipe.cautions.length > 0 && (
             <>
               <Text fontSize="sm">Caution:</Text>
-              <TagList items={recipe.cautions} />
+              <TagList items={recipe.cautions} color={'red'} />
             </>
           )}
         </Stack>

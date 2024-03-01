@@ -23,8 +23,8 @@ export const RecipeListPage = ({ filterArray, recipes, setRecipeSelected }) => {
   };
 
   return (
-    <Container maxW="1480px" padding="16px" flexDir="row">
-      <Heading>Your Recipe App</Heading>
+    <Container bg='beige.100' maxW="1480px" padding="16px" flexDir="row">
+      <Heading textStyle='h1'>Your Recipe App</Heading>
       <SearchField clickFn={inputChangeHandler} searchString={searchString} />
       <SimpleGrid
         spacing="32px"

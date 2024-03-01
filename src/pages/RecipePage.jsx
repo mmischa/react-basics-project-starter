@@ -7,18 +7,20 @@ import {
   Stack,
   UnorderedList,
   ListItem,
+  Button,
 } from '@chakra-ui/react';
 import { TagList } from '../components/TagList';
 
-export const RecipePage = ({recipe}) => {
+export const RecipePage = ({ recipe, setRecipeSelected }) => {
   // console.log('-------------------------------');
   // console.log("recipe shown = " +recipe[0].recipe.label);
   // console.log('-------------------------------');
   recipe = recipe[0].recipe;
-  
+
   return (
     <>
       <Container maxW="1480px" padding="64px" flexDir="row">
+        <Button  onClick={() => {setRecipeSelected(false)}}>Back to overview</Button>
         <Image
           src={recipe.image}
           height="350px"
