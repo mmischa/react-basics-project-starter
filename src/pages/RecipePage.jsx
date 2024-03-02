@@ -12,22 +12,21 @@ import {
 } from '@chakra-ui/react';
 import { TagList } from '../components/TagList';
 
-export const RecipePage = ({ recipe, setRecipeSelected }) => {
+export const RecipePage = ({ recipe, resetState }) => {
   // console.log('-------------------------------');
   // console.log("recipe shown = " +recipe[0].recipe.label);
   // console.log('-------------------------------');
   recipe = recipe[0].recipe;
 
-const minutesToHours = (totalMinutes) => {
-   
+  const minutesToHours = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
-    if (hours === 0 ) {
-        return (minutes + ' minutes');
+    if (hours === 0) {
+      return minutes + ' minutes';
     } else {
-    return (hours + " hour and " + minutes + " minutes");
+      return hours + ' hour and ' + minutes + ' minutes';
     }
-  } 
+  };
 
   return (
     <>
@@ -40,7 +39,7 @@ const minutesToHours = (totalMinutes) => {
       >
         <Button
           onClick={() => {
-            setRecipeSelected(false);
+            resetState();
           }}
           bgColor="warmblack"
           color="white"

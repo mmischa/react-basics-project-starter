@@ -1,10 +1,10 @@
 import { SimpleGrid, Heading, Container, Stack } from '@chakra-ui/react';
 import { RecipeItemCard } from '../components/RecipeItemCard';
 import { SearchField } from '../components/SearchField';
-import { useState } from 'react';
+//import { useState } from 'react';
 
-export const RecipeListPage = ({ filterArray, recipes, setRecipeSelected }) => {
-  const [searchString, setSearchString] = useState('');
+export const RecipeListPage = ({ searchString, setSearchString, filterArray, recipes, setRecipeSelected }) => {
+  
 
   //Searchfield handler ------------------------------------------------
   const inputChangeHandler = (e) => {
