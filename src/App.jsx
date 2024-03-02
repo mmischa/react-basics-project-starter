@@ -20,14 +20,13 @@ export const App = () => {
     console.log('Searchstring = ' + searchString);
     searchString = searchString.toLowerCase();
 
+
     const matches = recipesData.filter(
-      (item) => 
-        item.recipe.label.toLowerCase().includes(searchString)     
-        // Dit werkt niet, ik hoor graag waarom niet
-        // || item.recipe.healthLabels.map((label) =>
-        //  label.toLowerCase().includes(searchString)
-        // )}
-    );
+      // VRAAG /////////////////////////////////////
+      //  los van elkaar werken onderstaande functies, maar ik krijg ze niet in combinatie werkend ik hoor graag waarom niet
+      (item) => item.recipe.label.toLowerCase().includes(searchString)) || (item => item.recipe.healthLabels.some((label) => label.toLowerCase().includes(searchString)
+    )
+ )
 
     // console.table('##################' + matches);
 
