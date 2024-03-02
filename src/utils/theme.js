@@ -35,7 +35,7 @@ export const theme = extendTheme({
     '2xl': 'clamp(1.6em, 2vw, 1.8em)',
     '3xl': '1.875rem',
     '4xl': '2.25rem',
-    '5xl': '3rem',
+    '5xl': 'clamp(2.7em, 3vw, 4em)',
     '6xl': '3.75rem',
     '7xl': '4.5rem',
     '8xl': '6rem',

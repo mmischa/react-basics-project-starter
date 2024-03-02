@@ -30,12 +30,15 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
         />
         <Stack mt="6" spacing="3">
           {/* TEXT ------------------------------------- */}
-          <Text fontSize="sm" fontWeight="bold" textTransform="uppercase">
-            {recipe.mealType}
-          </Text>
-          <Heading fontSize="2xl" lineHeight="base">
-            {recipe.label}
-          </Heading>
+          <Stack spacing="0">
+            <Text fontSize="xs" fontWeight="bold"  textTransform="uppercase">
+              {recipe.mealType}
+            </Text>
+            <Heading fontSize="2xl" lineHeight="base">
+              {recipe.label}
+            </Heading>
+          </Stack>
+
           {/* HEALTHLABELS ----------------------------- */}
 
           <TagList
@@ -57,7 +60,9 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           {/* CAUTION ----------------------------------- */}
           {recipe.cautions.length > 0 && (
             <>
-              <Text fontSize="sm">Caution:</Text>
+              <Text fontSize="sm" fontWeight="semibold">
+                Caution:
+              </Text>
               <TagList items={recipe.cautions} color={'orange'} />
             </>
           )}

@@ -18,11 +18,21 @@ export const RecipePage = ({ recipe, setRecipeSelected }) => {
   // console.log('-------------------------------');
   recipe = recipe[0].recipe;
 
+const minutesToHours = (totalMinutes) => {
+   
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    if (hours === 0 ) {
+        return (minutes + ' minutes');
+    } else {
+    return (hours + " hour and " + minutes + " minutes");
+    }
+  } 
+
   return (
     <>
       <Container
         maxW="1480px"
-
         pl={{ base: '16px', md: '32px' }}
         pr={{ base: '16px', md: '32px' }}
         pb={{ base: '2rem', md: '4rem' }}
@@ -64,7 +74,7 @@ export const RecipePage = ({ recipe, setRecipeSelected }) => {
                 <Text fontSize="lg" fontWeight="bold">
                   Total cooking time:
                 </Text>
-                <Text fontSize="lg">{recipe.totalTime}</Text>
+                <Text fontSize="lg">{minutesToHours(recipe.totalTime)}</Text>
               </Stack>
               <Stack>
                 <Text fontSize="lg" fontWeight="bold">
