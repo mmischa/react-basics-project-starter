@@ -18,15 +18,25 @@ export const App = () => {
   // One function to filter the array by name --------------------------------------
   const filterArray = (searchString) => {
     console.log('Searchstring = ' + searchString);
-    const matches = recipesData.filter((item) =>
-      item.recipe.label.toLowerCase().includes(searchString.toLowerCase())
+    searchString = searchString.toLowerCase();
+
+    const matches = recipesData.filter(
+      (item) => 
+        item.recipe.label.toLowerCase().includes(searchString)     
+        // WAAROM WERKT DIT NIET?!
+        // || item.recipe.healthLabels.map((label) =>
+        //  label.toLowerCase().includes(searchString)
+        // )}
     );
+
+    // console.table('##################' + matches);
+
     setFilteredRecipes(matches);
   };
   // reset all input --------------------------------------------------------------
   const resetState = () => {
-    const searchString = "";
-    setSearchString(searchString)
+    const searchString = '';
+    setSearchString(searchString);
     filterArray(searchString);
     setRecipeSelected(false);
   };

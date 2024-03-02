@@ -14,6 +14,7 @@ export const data = JSON.parse(`{
           "Low-Sodium"
         ],
         "healthLabels": [
+          "testlabel",
           "Low Potassium",
           "Kidney-Friendly",
           "Vegetarian",
