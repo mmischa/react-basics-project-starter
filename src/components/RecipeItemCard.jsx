@@ -2,7 +2,7 @@ import { TagList } from './TagList';
 import { Image, Stack, Text, Card, CardBody, Heading } from '@chakra-ui/react';
 
 export const RecipeItemCard = ({ recipe, clickFn }) => {
-  const healthLabelsToshow = ['vegan', 'Vegetarian', 'kidney-friendly'];
+  const healthLabelsToshow = ['vegan', 'Vegetarian'];
 
   return (
     <Card
