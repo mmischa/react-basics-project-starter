@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { RecipePage } from './pages/RecipePage';
 import { RecipeListPage } from './pages/RecipeListPage';
 import { data } from './utils/data';
+import { theme } from './utils/theme';
+import { ChakraProvider, Box } from '@chakra-ui/react';
 
 const recipesData = data.hits;
 
 export const App = () => {
   // state hook to report a click on a card
   const [recipeSelected, setRecipeSelected] = useState(false);
-  // filter hook
+  // filter state hook
   const [filteredRecipes, setFilteredRecipes] = useState(recipesData);
 
   // One function to filter the array by name --------------------------------------
@@ -18,24 +20,32 @@ export const App = () => {
       item.recipe.label.toLowerCase().includes(searchString.toLowerCase())
     );
     setFilteredRecipes(matches);
-   // console.log(matches);
   };
+ 
+
 
   return (
     <>
-      {recipeSelected === true ? (
-        // Show if recipe selected
-        <RecipePage recipe={filteredRecipes} />
-      ) : (
-        // Show if NO recipe selected
-        <>
-          <RecipeListPage
-            filterArray={filterArray}
-            recipes={filteredRecipes}
-            setRecipeSelected={setRecipeSelected}
-          />
-        </>
-      )}
+      <ChakraProvider theme={theme} >
+        <Box  w="100%" h="100vw">
+          {recipeSelected === true ? (
+            // Show if recipe selected
+            <RecipePage
+              recipe={filteredRecipes}
+              setRecipeSelected={setRecipeSelected}
+            />
+          ) : (
+            // Show if NO recipe selected
+            <>
+              <RecipeListPage
+                filterArray={filterArray}
+                recipes={filteredRecipes}
+                setRecipeSelected={setRecipeSelected}
+              />
+            </>
+          )}
+        </Box>
+      </ChakraProvider>
     </>
   );
 };

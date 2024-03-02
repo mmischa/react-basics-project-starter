@@ -8,6 +8,8 @@ export const SearchField = ({ searchString, clickFn }) => {
       value={searchString}
       onChange={clickFn}
       placeholder="Type to search"
+      bgColor="warmwhite.200"
+      border="0"
     />
   );
 };

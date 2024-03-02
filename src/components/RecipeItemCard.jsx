@@ -6,15 +6,17 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
 
   return (
     <Card
-     
+      variant="filled"
+      borderRadius="1rem"
+      bgColor="warmwhite.200"
       transition="all .5s ease-in"
       _hover={{
         transition: 'all .3s ease-out',
         cursor: 'pointer',
-        bgColor: 'blue.100',
+        bgColor: 'warmwhite.600',
       }}
       onClick={() => {
-       clickFn(recipe.label)
+        clickFn(recipe.label);
       }}
     >
       <CardBody>
@@ -24,19 +26,31 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           height="220px"
           width="100%"
           objectFit="cover"
+          borderRadius="1rem"
         />
         <Stack mt="6" spacing="3">
           {/* TEXT ------------------------------------- */}
-          <Text fontSize="sm">{recipe.mealType}</Text>
-          <Heading size="md">{recipe.label}</Heading>
+          <Stack spacing="0">
+            <Text fontSize="xs" fontWeight="bold"  textTransform="uppercase">
+              {recipe.mealType}
+            </Text>
+            <Heading fontSize="2xl" lineHeight="base">
+              {recipe.label}
+            </Heading>
+          </Stack>
+
           {/* HEALTHLABELS ----------------------------- */}
 
-          <TagList items={recipe.healthLabels} showItems={healthLabelsToshow} />
+          <TagList
+            items={recipe.healthLabels}
+            showItems={healthLabelsToshow}
+            color={'yellow'}
+          />
 
           {/* DIETLABELS ------------------------------- */}
           {recipe.dietLabels.length > 0 && (
             <>
-              <TagList items={recipe.dietLabels} />
+              <TagList items={recipe.dietLabels} color={'green'} />
             </>
           )}
 
@@ -46,8 +60,10 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           {/* CAUTION ----------------------------------- */}
           {recipe.cautions.length > 0 && (
             <>
-              <Text fontSize="sm">Caution:</Text>
-              <TagList items={recipe.cautions} />
+              <Text fontSize="sm" fontWeight="semibold">
+                Caution:
+              </Text>
+              <TagList items={recipe.cautions} color={'orange'} />
             </>
           )}
         </Stack>

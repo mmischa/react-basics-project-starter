@@ -1,7 +1,6 @@
-import { Flex } from '@chakra-ui/react';
-import { TagItem } from './ui/Tagitem';
+import { Flex, Tag } from '@chakra-ui/react';
 
-export const TagList = ({ items, showItems }) => {
+export const TagList = ({ items, showItems, color }) => {
   // Filter Optional itemss -------------------------------------
   if (showItems !== undefined) {
     // console.log('---------------' + showItems);
@@ -13,7 +12,7 @@ export const TagList = ({ items, showItems }) => {
   return (
     <Flex gap="2" flexWrap="wrap">
       {items.map((tag) => (
-        <TagItem key={tag.toString()} text={tag} />
+        <Tag key={tag.toString()} bgColor={color}>{tag}</Tag>
       ))}
     </Flex>
   );
