@@ -23,7 +23,7 @@ export const App = () => {
     const matches = recipesData.filter(
       (item) => 
         item.recipe.label.toLowerCase().includes(searchString)     
-        // WAAROM WERKT DIT NIET?!
+        // Dit werkt niet, ik hoor graag waarom niet
         // || item.recipe.healthLabels.map((label) =>
         //  label.toLowerCase().includes(searchString)
         // )}
