@@ -20,13 +20,30 @@ export const App = () => {
     console.log('Searchstring = ' + searchString);
     searchString = searchString.toLowerCase();
 
+    // const a = () => {
+    //   console.log('call A');
+
+    //   return false;
+    // };
+
+    // const b = () => {
+    //   console.log('call B');
+
+    //   return true;
+    // };
+
+    // if (a() || b()) {
+    //   console.log('some true');
+    // }
 
     const matches = recipesData.filter(
-      // VRAAG /////////////////////////////////////
-      //  los van elkaar werken onderstaande functies, maar ik krijg ze niet in combinatie werkend ik hoor graag waarom niet
-      (item) => item.recipe.label.toLowerCase().includes(searchString)) || (item => item.recipe.healthLabels.some((label) => label.toLowerCase().includes(searchString)
-    )
- )
+
+      (item) =>
+        item.recipe.label.toLowerCase().includes(searchString) ||
+        item.recipe.healthLabels.some((label) =>
+          label.toLowerCase().includes(searchString)
+        )
+    );
 
     // console.table('##################' + matches);
 
